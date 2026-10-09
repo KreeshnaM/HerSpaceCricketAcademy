@@ -242,7 +242,10 @@ def build(verbose: bool = True) -> int:
     read.cache_clear()
     config = load_config()
 
-    pages = sorted(PAGES.glob("*.html"))
+    pages = sorted(
+        page for page in PAGES.glob("*.html")
+        if parse_front_matter(read(page), page)[0].get("publish", "true").lower() != "false"
+    )
     if not pages:
         raise BuildError("no pages found in pages/")
 

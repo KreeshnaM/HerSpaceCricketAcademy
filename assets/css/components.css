@@ -47,7 +47,7 @@
 
 /* Variants ---------------------------------------------------------------- */
 .btn--primary { --btn-bg: var(--coral); --btn-fg: var(--ink); }
-.btn--primary:hover { --btn-bg: #ff6f5e; }
+.btn--primary:hover { --btn-bg: #ed6b9e; }
 
 .btn--ghost {
   --btn-bg: transparent;
@@ -60,7 +60,7 @@
 .btn--pitch:hover { --btn-bg: #368f5e; }
 
 .btn--sun { --btn-bg: var(--sun); --btn-fg: var(--ink); }
-.btn--sun:hover { --btn-bg: #ffe9a6; }
+.btn--sun:hover { --btn-bg: #f5b0cb; }
 
 /* For use on the dark bands. */
 .btn--cream {
@@ -218,7 +218,7 @@
   width: 5.5rem;
   height: 1.55rem;
   transform: translateX(-50%) rotate(-3deg);
-  background: rgba(255, 224, 138, 0.82);
+  background: rgba(248, 194, 217, 0.82);
   border-left: 1px dashed rgba(36, 27, 46, 0.18);
   border-right: 1px dashed rgba(36, 27, 46, 0.18);
   z-index: 2;
@@ -559,14 +559,13 @@
   letter-spacing: -0.02em;
 }
 
-.brand__ball {
+.brand__logo {
   width: 2.3rem;
   aspect-ratio: 1;
   flex: none;
-  transition: transform var(--t-med) var(--ease-spring);
+  object-fit: contain;
+  border-radius: 50%;
 }
-
-.brand:hover .brand__ball { transform: rotate(-22deg) scale(1.06); }
 
 .brand__text { display: grid; }
 
@@ -848,6 +847,14 @@ body.nav-open { overflow: hidden; }
   color: var(--paper);
   text-decoration: none;
   line-height: 1.1;
+}
+
+.footer__logo {
+  width: 2.1rem;
+  aspect-ratio: 1;
+  flex: none;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .footer__blurb {

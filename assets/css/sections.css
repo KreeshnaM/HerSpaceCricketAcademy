@@ -593,7 +593,7 @@
   width: 4.75rem;
   height: 1.7rem;
   transform: rotate(-5deg);
-  background: rgba(255, 177, 61, 0.78);
+  background: rgba(241, 162, 193, 0.78);
   border-left: 1px dashed rgba(36, 27, 46, 0.2);
   border-right: 1px dashed rgba(36, 27, 46, 0.2);
 }
@@ -772,7 +772,7 @@
   /* The darkest stop is kept light enough that ink text on it still clears
      4.5:1 - a deeper red would fail in the corners. */
   background:
-    radial-gradient(80% 120% at 50% 0%, #ff7a5f 0%, var(--coral) 55%, #fa5b42 100%);
+    radial-gradient(80% 120% at 50% 0%, #f7a4c3 0%, var(--coral) 55%, #ee78a6 100%);
   color: var(--ink);
   text-align: center;
 }

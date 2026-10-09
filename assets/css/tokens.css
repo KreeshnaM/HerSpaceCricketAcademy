@@ -4,13 +4,12 @@
    The whole look of the site comes from the values in this file. Change a
    colour here and it changes everywhere.
 
-   The palette is warm cream paper and deep plum ink, with five joyful
-   accents. It is deliberately not navy-and-gold, and deliberately not pastel
-   pink - the aim is a grassroots club that girls actually want to belong to.
+   The palette is warm cream paper and deep plum ink, with bright pink accents
+   drawn from the academy logo.
 
    Contrast: every text-on-colour pairing used in the site passes WCAG AA.
-   Notably, the primary button is coral with INK text (5.35:1), not white
-   text - white on coral only reaches 3.1:1 and would fail.
+   Notably, the primary button uses dark ink text on light pink for strong
+   contrast.
    ========================================================================== */
 
 :root {
@@ -26,9 +25,9 @@
   --hairline:         #e7d6c6;  /* borders on paper */
 
   /* ---- Accents ---------------------------------------------------------- */
-  --coral:            #ff5a47;  /* primary energy - CTAs */
-  --coral-deep:       #ea3f2b;
-  --coral-wash:       #ffe4de;
+  --coral:            #f58bb6;  /* logo pink - primary CTAs */
+  --coral-deep:       #b52b68;
+  --coral-wash:       #fde3ee;
   --berry:            #c4326f;  /* confident magenta, used with restraint */
   --berry-deep:       #a02458;
   --berry-wash:       #fadfea;
@@ -37,8 +36,8 @@
   --pitch-wash:       #dff0e4;
   --sky:              #3fa7c4;
   --sky-wash:         #ddf0f5;
-  --mango:            #ffb13d;
-  --sun:              #ffe08a;
+  --mango:            #f1a2c1;
+  --sun:              #f8c2d9;
   --ball:             #b7202b;  /* cricket ball leather */
 
   /* ---- Semantic --------------------------------------------------------- */
