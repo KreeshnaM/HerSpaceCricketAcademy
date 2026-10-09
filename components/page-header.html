@@ -1,0 +1,19 @@
+<!--
+  Page header. Stands in for the hero on every page except the homepage.
+  Arguments: eyebrow, title, lede, and optionally tint
+  ("page-header--pitch" or "page-header--berry" for a dark band).
+  See any file in pages/ for how it is called.
+-->
+<section class="page-header {{ tint }}">
+  <div class="trajectory trajectory--draw page-header__arc" aria-hidden="true">
+    <svg viewBox="0 0 400 180" fill="none">
+      <path d="M6 172C64 34 214 6 394 58"/>
+    </svg>
+  </div>
+
+  <div class="wrap page-header__inner">
+    <p class="eyebrow">{{ eyebrow }}</p>
+    <h1 class="page-header__title" data-reveal>{{ title }}</h1>
+    <p class="lede lede--wide page-header__lede" data-reveal style="--reveal-delay:90ms">{{ lede }}</p>
+  </div>
+</section>

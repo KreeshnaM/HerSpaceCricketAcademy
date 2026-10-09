@@ -1,0 +1,99 @@
+<form class="form" data-form
+      data-endpoint="{{ form_endpoint }}"
+      data-mailto="{{ email }}"
+      data-subject="Volunteer enquiry from the website"
+      data-thanks="Thank you - that means a lot. Someone will be in touch to find out what suits you. There is no commitment yet.">
+
+  <input type="hidden" name="_subject" value="Volunteer enquiry">
+
+  <div class="form__row form__row--2">
+    <p class="field">
+      <label for="vol-name">Your name</label>
+      <input id="vol-name" name="name" type="text" autocomplete="name" required>
+    </p>
+    <p class="field">
+      <label for="vol-email">Email</label>
+      <input id="vol-email" name="email" type="email" autocomplete="email" required>
+    </p>
+  </div>
+
+  <fieldset style="border:0;padding:0;margin:0">
+    <legend class="field" style="margin-bottom:.6rem">
+      <span style="font-size:var(--step--1);font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-soft)">
+        What sounds like you?
+      </span>
+    </legend>
+    <div class="form__row form__row--2">
+      <label class="check">
+        <input type="checkbox" name="help_coaching" value="Coaching">
+        <span>Coaching - we'll fund your badges</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="help_matchday" value="Match days">
+        <span>Match days - scoring, umpiring, teas</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="help_mentoring" value="Mentoring">
+        <span>Mentoring a younger player</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="help_events" value="Events">
+        <span>Events and festival days</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="help_fundraising" value="Fundraising">
+        <span>Fundraising, grants, sponsors</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="help_lifts" value="Lifts and logistics">
+        <span>Lifts to away games</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="help_kit" value="Kit and equipment">
+        <span>Kit, equipment, pitch prep</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="help_unsure" value="Not sure yet">
+        <span>Not sure - point me somewhere</span>
+      </label>
+    </div>
+  </fieldset>
+
+  <div class="form__row form__row--2">
+    <p class="field">
+      <label for="vol-when">When are you usually free?</label>
+      <input id="vol-when" name="availability" type="text"
+             placeholder="Saturday mornings, the odd weekday evening...">
+    </p>
+    <p class="field">
+      <label for="vol-cricket">Do you know cricket?</label>
+      <select id="vol-cricket" name="cricket_knowledge">
+        <option value="Not at all">Not at all - and that's fine, right?</option>
+        <option value="I know the basics">I know the basics</option>
+        <option value="I played">I played, a while ago</option>
+        <option value="I play or coach now">I play or coach now</option>
+      </select>
+    </p>
+  </div>
+
+  <p class="field">
+    <label for="vol-notes">Anything else</label>
+    <textarea id="vol-notes" name="notes"
+              placeholder="Skills you'd bring, a parent already at the club, or just hello."></textarea>
+  </p>
+
+  <label class="check">
+    <input type="checkbox" name="consent" value="yes" required>
+    <span>Yes, you can contact me about volunteering.</span>
+  </label>
+
+  <div class="cluster">
+    <button class="btn btn--primary btn--big btn--ball" type="submit">Count me in</button>
+    <span class="form__note">
+      Nervous about it? Email <a href="mailto:{{ email }}"><span class="tbc">{{ email }}</span></a>
+      and come and watch a session first.
+    </span>
+  </div>
+
+  <p class="form__status" role="status" aria-live="polite"></p>
+</form>

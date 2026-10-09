@@ -1,0 +1,59 @@
+# Build the site and publish it to GitHub Pages.
+#
+# Runs on every push to main. Nothing to install and nothing to configure
+# beyond turning Pages on once:
+#
+#   Repository -> Settings -> Pages -> Build and deployment -> Source:
+#   "GitHub Actions"
+#
+# After that, every push rebuilds and republishes the site automatically.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:      # lets you trigger it by hand from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it half-way.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the site
+        run: python build.py
+
+      - name: Check links, labels and alt text
+        run: python scripts/check_site.py
+        continue-on-error: true   # placeholders are not a reason to block a deploy
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

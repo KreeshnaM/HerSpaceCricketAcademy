@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Set site_url in site.config.json, then point this at your real domain.
+# Sitemap: https://example.org/sitemap.xml

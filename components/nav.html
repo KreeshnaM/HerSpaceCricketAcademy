@@ -1,0 +1,66 @@
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+
+      <a class="brand" href="index.html">
+        <svg class="brand__ball" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="29" fill="#b7202b"/>
+          <g fill="none" stroke="#fff7ef" stroke-width="2.6" stroke-linecap="round" opacity=".92">
+            <path d="M18 7.5C12 16 12 48 18 56.5"/>
+            <path d="M24 4.6C18.6 14 18.6 50 24 59.4"/>
+          </g>
+          <circle cx="32" cy="32" r="29" fill="none" stroke="#241b2e" stroke-width="3"/>
+        </svg>
+        <span class="brand__text">
+          <span>HerSpace</span>
+          <span class="brand__sub">Girls Cricket Academy</span>
+        </span>
+      </a>
+
+      <ul class="nav__list">
+        <li><a class="nav__link" data-nav="home" href="index.html">Home</a></li>
+        <li><a class="nav__link" data-nav="about" href="about.html">About</a></li>
+        <li><a class="nav__link" data-nav="academy" href="academy.html">Academy</a></li>
+        <li><a class="nav__link" data-nav="teams" href="teams.html">Girls &amp; Teams</a></li>
+        <li><a class="nav__link" data-nav="get-involved" href="get-involved.html">Get Involved</a></li>
+        <li><a class="nav__link" data-nav="stories" href="stories.html">Stories</a></li>
+        <li><a class="nav__link" data-nav="contact" href="contact.html">Contact</a></li>
+      </ul>
+
+      <a class="btn btn--primary nav__cta" href="get-involved.html#join">Join Us</a>
+
+      <button class="nav__toggle" type="button"
+              aria-expanded="false" aria-controls="nav-panel">
+        <span class="nav__bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="nav__toggle-text">Menu</span>
+      </button>
+
+    </nav>
+  </div>
+</header>
+
+<!--
+  The mobile panel lives OUTSIDE <header> on purpose. The header uses
+  backdrop-filter, and that makes it the containing block for any
+  position:fixed descendant - which would stop this panel from covering the
+  screen. Keeping it a sibling means `inset` resolves against the viewport.
+-->
+<nav class="nav__panel" id="nav-panel" aria-label="Menu">
+  <a class="nav__panel-link" data-nav="home" href="index.html">Home</a>
+  <a class="nav__panel-link" data-nav="about" href="about.html">About</a>
+  <a class="nav__panel-link" data-nav="academy" href="academy.html">Academy</a>
+  <a class="nav__panel-link" data-nav="teams" href="teams.html">Girls &amp; Teams</a>
+  <a class="nav__panel-link" data-nav="get-involved" href="get-involved.html">Get Involved</a>
+  <a class="nav__panel-link" data-nav="stories" href="stories.html">Stories</a>
+  <a class="nav__panel-link" data-nav="contact" href="contact.html">Contact</a>
+
+  <div class="nav__panel-foot">
+    <a class="btn btn--primary btn--ball" href="get-involved.html#join">Join the Academy</a>
+    <a class="btn btn--ghost" href="get-involved.html#volunteer">Become a Volunteer</a>
+    <p class="form__note">
+      Questions? Email <a href="mailto:{{ email }}"><span class="tbc">{{ email }}</span></a>
+    </p>
+  </div>
+</nav>

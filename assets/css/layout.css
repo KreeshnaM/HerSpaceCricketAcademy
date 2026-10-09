@@ -1,0 +1,204 @@
+/* ==========================================================================
+   Layout - containers, section rhythm, and the cricket-inspired furniture
+   (seam stitching, ball trajectories, paper grain)
+   ========================================================================== */
+
+/* ---- Containers --------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--width-page);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.wrap--wide { max-width: var(--width-wide); }
+.wrap--text { max-width: var(--width-text); }
+
+/* ---- Sections ----------------------------------------------------------- */
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+
+.section--tight { padding-block: calc(var(--section-y) * 0.62); }
+.section--flush-top { padding-top: 0; }
+.section--flush-bottom { padding-bottom: 0; }
+
+.section--paper-2 { background: var(--paper-2); }
+.section--paper-3 { background: var(--paper-3); }
+
+.section--pitch {
+  background: var(--pitch-deep);
+  color: var(--paper);
+}
+
+/* The deeper berry, not the bright one: at --berry the semi-transparent cream
+   text inside this band only reaches 3.6:1, which is not enough. */
+.section--berry {
+  background: var(--berry-deep);
+  color: var(--paper);
+}
+
+.section--ink {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+:where(.section--pitch, .section--berry, .section--ink) :where(h1, h2, h3, h4) {
+  color: var(--paper);
+}
+
+:where(.section--pitch, .section--berry, .section--ink) .lede {
+  color: color-mix(in srgb, var(--paper) 82%, transparent);
+}
+
+/* Section heading block, with an optional aside on wide screens. */
+.section-head {
+  display: grid;
+  gap: var(--space-m) var(--space-2xl);
+  margin-bottom: clamp(2rem, 1rem + 4vw, 3.75rem);
+}
+
+@media (min-width: 62em) {
+  .section-head--split {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: end;
+  }
+  .section-head--split > :last-child { padding-bottom: 0.4rem; }
+}
+
+/* ---- Generic grids ------------------------------------------------------ */
+.grid { display: grid; gap: var(--space-m); }
+
+.grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.grid--4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+
+.flow > * + * { margin-top: var(--space-s); }
+.flow--l > * + * { margin-top: var(--space-m); }
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  align-items: center;
+}
+
+/* ==========================================================================
+   Cricket furniture
+   ========================================================================== */
+
+/* ---- Seam stitching ----------------------------------------------------
+   The double row of stitches on a cricket ball, flattened out and used as a
+   divider. Two offset dash rows, like real seam thread. */
+.seam {
+  --seam-color: var(--ball);
+  display: block;
+  height: 14px;
+  border: 0;
+  margin: 0;
+  background-repeat: repeat-x;
+  background-position: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%23b7202b' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M3 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M26 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M3 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3Cpath d='M26 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.55;
+}
+
+.seam--pitch {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%232f7d52' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M3 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M26 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M3 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3Cpath d='M26 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.seam--cream {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%23fff7ef' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M3 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M26 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M3 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3Cpath d='M26 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+
+/* ---- Ball trajectory ---------------------------------------------------
+   A dashed arc, like the path of a ball off the bat. Decorative only, so it
+   is hidden from assistive tech and dropped on small screens where it would
+   only add clutter. */
+.trajectory {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  color: var(--coral);
+  opacity: 0.4;
+}
+
+.trajectory svg { width: 100%; height: auto; overflow: visible; }
+
+.trajectory path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 9 11;
+}
+
+.trajectory--pitch { color: var(--pitch); }
+.trajectory--berry { color: var(--berry); }
+.trajectory--cream { color: var(--paper); opacity: 0.3; }
+
+@media (max-width: 47.99em) {
+  .trajectory { display: none; }
+}
+
+/* Once it scrolls into view the dash pattern draws itself in, like a replay
+   line. Purely additive: the arc is fully drawn without the animation. */
+.trajectory--draw path {
+  stroke-dasharray: 9 11;
+  stroke-dashoffset: 0;
+}
+
+.trajectory--draw.is-in path {
+  animation: trace 2.6s var(--ease-out) forwards;
+}
+
+@keyframes trace {
+  from { stroke-dashoffset: 420; }
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trajectory--draw.is-in path { animation: none; }
+}
+
+/* ---- Paper grain -------------------------------------------------------
+   A faint fibre texture over the whole page so the cream reads as paper
+   rather than as a flat fill. Very low opacity - you feel it, you don't see
+   it. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+}
+
+/* Stacking: grain sits above backgrounds but below anything interactive. */
+.site-header, main, .site-footer { position: relative; z-index: 2; }
+
+/* ---- Pitch stripes -----------------------------------------------------
+   The mown lines of an outfield, as a background for dark bands. */
+.stripes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background: repeating-linear-gradient(
+    102deg,
+    transparent 0 42px,
+    rgba(255, 247, 239, 0.75) 42px 84px
+  );
+}
+
+/* ---- Decorative cricket ball ------------------------------------------- */
+.ball-mark {
+  width: 3.5rem;
+  aspect-ratio: 1;
+  flex: none;
+}
+
+.ball-mark svg { width: 100%; height: auto; }

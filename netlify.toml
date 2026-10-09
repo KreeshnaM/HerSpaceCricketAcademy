@@ -1,0 +1,42 @@
+# Netlify configuration.
+#
+# Connect the repo at app.netlify.com and Netlify reads this file - there is
+# nothing to fill in by hand.
+#
+# Netlify Forms note: Netlify picks up forms that carry a `netlify` attribute.
+# This site's forms post via fetch() instead, so the simplest route is to
+# create a form on Netlify (or Formspree, or Basin) and paste its endpoint
+# into "form_endpoint" in site.config.json.
+
+[build]
+  command = "python3 build.py"
+  publish = "site"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+# Long cache for fingerprint-free assets is risky, so keep images cacheable
+# but revalidated, and never cache the HTML.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Serve /about as well as /about.html, so links keep working if you ever
+# tidy the URLs.
+[[redirects]]
+  from = "/:page"
+  to = "/:page.html"
+  status = 200
+  force = false

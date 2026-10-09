@@ -1,0 +1,20 @@
+# The built website. Rebuilt from source by `python build.py`, and by the
+# host on every deploy, so there is no reason to keep a copy in the repo.
+site/
+
+# Local Claude Code settings (machine-specific)
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini

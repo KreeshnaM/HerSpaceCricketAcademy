@@ -1,0 +1,35 @@
+{
+  "_comment": "Every real detail on the website comes from this file. Anything wrapped in [square brackets] is a placeholder waiting for your information - search the built site for '[' to find any you have missed. Change a value here, run `python build.py`, and it updates on every page.",
+
+  "academy_name": "HerSpace Girls Cricket Academy",
+  "tagline": "Where girls play, grow and belong.",
+  "default_description": "A volunteer-led cricket academy for girls. Come and learn the game, make friends, and find out what you can do. No experience needed.",
+
+  "email": "teehjcharity@gmail.com",
+  "phone": "0758001484",
+
+  "ground_name": "Hodari Lavington",
+  "address_city": "Nairobi, Kenya",
+
+  "training_days": "Saturdays",
+  "training_time": "9:00am - 12:00pm",
+  "kit_line": "Comfortable sports clothes and trainers. We lend out bats, pads and helmets.",
+
+  "stats": {
+    "girls_trained": "20",
+    "girls_trained_label": "girls training with us and growing",
+    "volunteer_coaches_label": "volunteer coaches and helpers"
+  },
+
+  "social": {
+    "instagram": "https://www.instagram.com/herspace_cricket_academy/",
+    "facebook": "https://www.facebook.com",
+    "youtube": "https://www.youtube.com/@HerSpacecricket",
+    "tiktok": "https://www.tiktok.com/@tiaracoach"
+  },
+
+  "_form_comment": "The forms POST here. Paste a Formspree, Basin, Netlify or Google Forms endpoint. Left empty, forms fall back to opening the visitor's email app so nothing is ever lost.",
+  "form_endpoint": "",
+
+  "site_url": "https://HerSpaceCricketAcademy.org"
+}

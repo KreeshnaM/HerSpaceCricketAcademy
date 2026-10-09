@@ -1,0 +1,81 @@
+<form class="form" data-form
+      data-endpoint="{{ form_endpoint }}"
+      data-mailto="{{ email }}"
+      data-subject="New player enquiry from the website"
+      data-thanks="Thank you - we've got that. One of the coaches will email you within a few days, and you're welcome to just turn up to the next session in the meantime.">
+
+  <input type="hidden" name="_subject" value="New player enquiry">
+
+  <div class="form__row form__row--2">
+    <p class="field">
+      <label for="join-player">Player's first name</label>
+      <input id="join-player" name="player_first_name" type="text"
+             autocomplete="given-name" required>
+    </p>
+    <p class="field">
+      <label for="join-age">Her age</label>
+      <input id="join-age" name="player_age" type="number"
+             min="4" max="19" inputmode="numeric" required>
+    </p>
+  </div>
+
+  <div class="form__row form__row--2">
+    <p class="field">
+      <label for="join-contact">Your name</label>
+      <input id="join-contact" name="contact_name" type="text"
+             autocomplete="name" required>
+      <span class="field__hint" id="join-contact-hint">
+        Parent or guardian, unless the player is 18 or over.
+      </span>
+    </p>
+    <p class="field">
+      <label for="join-email">Email</label>
+      <input id="join-email" name="email" type="email"
+             autocomplete="email" required>
+    </p>
+  </div>
+
+  <div class="form__row form__row--2">
+    <p class="field">
+      <label for="join-phone">Phone <span class="field__hint">(optional)</span></label>
+      <input id="join-phone" name="phone" type="tel" autocomplete="tel">
+    </p>
+    <p class="field">
+      <label for="join-experience">Has she played cricket before?</label>
+      <select id="join-experience" name="experience">
+        <option value="Never played">Never played - completely new</option>
+        <option value="Tried it once or twice">Tried it once or twice</option>
+        <option value="Plays at school">Plays a bit at school</option>
+        <option value="Plays at a club">Already plays at a club</option>
+        <option value="Not sure">Not sure</option>
+      </select>
+    </p>
+  </div>
+
+  <p class="field">
+    <label for="join-notes">Anything we should know?</label>
+    <textarea id="join-notes" name="notes"
+              placeholder="Injuries, access needs, a friend she'd like to be grouped with, or if she's nervous about coming on her own."></textarea>
+    <span class="field__hint">
+      Genuinely useful - it helps us look after her properly on day one.
+    </span>
+  </p>
+
+  <label class="check">
+    <input type="checkbox" name="consent" value="yes" required>
+    <span>
+      Yes, you can email or call me about sessions. We will not pass your
+      details to anyone else.
+    </span>
+  </label>
+
+  <div class="cluster">
+    <button class="btn btn--primary btn--big btn--ball" type="submit">Send this in</button>
+    <span class="form__note">
+      Or just email <a href="mailto:{{ email }}"><span class="tbc">{{ email }}</span></a> -
+      whichever is easier.
+    </span>
+  </div>
+
+  <p class="form__status" role="status" aria-live="polite"></p>
+</form>

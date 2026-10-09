@@ -1,0 +1,914 @@
+/* ==========================================================================
+   Components
+   ========================================================================== */
+
+/* ==========================================================================
+   Buttons
+   --------------------------------------------------------------------------
+   Chunky, sticker-like, with a hard offset shadow. Pressing one physically
+   moves it into its own shadow, which reads as friendly rather than slick.
+   ========================================================================== */
+.btn {
+  --btn-bg: var(--coral);
+  --btn-fg: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 0.85em 1.5em;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sticker);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: transform var(--t-fast) var(--ease-out),
+              box-shadow var(--t-fast) var(--ease-out),
+              background-color var(--t-fast) var(--ease-out);
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ink);
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+/* Variants ---------------------------------------------------------------- */
+.btn--primary { --btn-bg: var(--coral); --btn-fg: var(--ink); }
+.btn--primary:hover { --btn-bg: #ff6f5e; }
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--ink);
+  box-shadow: none;
+}
+.btn--ghost:hover { --btn-bg: var(--paper-3); box-shadow: 4px 4px 0 var(--ink); }
+
+.btn--pitch { --btn-bg: var(--pitch); --btn-fg: var(--paper); }
+.btn--pitch:hover { --btn-bg: #368f5e; }
+
+.btn--sun { --btn-bg: var(--sun); --btn-fg: var(--ink); }
+.btn--sun:hover { --btn-bg: #ffe9a6; }
+
+/* For use on the dark bands. */
+.btn--cream {
+  --btn-bg: var(--paper);
+  --btn-fg: var(--ink);
+  border-color: var(--ink);
+}
+.btn--cream:hover { --btn-bg: #fffdfa; }
+
+.btn--outline-cream {
+  --btn-bg: transparent;
+  --btn-fg: var(--paper);
+  border-color: var(--paper);
+  box-shadow: 3px 3px 0 rgba(255, 247, 239, 0.4);
+}
+.btn--outline-cream:hover {
+  --btn-bg: rgba(255, 247, 239, 0.14);
+  box-shadow: 5px 5px 0 rgba(255, 247, 239, 0.5);
+}
+
+.btn--big { padding: 1.05em 2.1em; font-size: var(--step-1); }
+.btn--block { width: 100%; }
+
+/* A cricket ball on the button that spins a half-turn on hover. The seam
+   makes the rotation readable. */
+.btn--ball::after {
+  content: "";
+  width: 1.2em;
+  height: 1.2em;
+  flex: none;
+  background: no-repeat center/contain
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14.6' fill='%23b7202b' stroke='%23241b2e' stroke-width='2'/%3E%3Cg fill='none' stroke='%23fff7ef' stroke-width='1.7' stroke-linecap='round' opacity='.95'%3E%3Cpath d='M9.2 3.6C6.4 8.6 6.4 23.4 9.2 28.4'/%3E%3Cpath d='M12.4 2.4C9.4 8 9.4 24 12.4 29.6'/%3E%3C/g%3E%3C/svg%3E");
+  transition: transform var(--t-med) var(--ease-spring);
+}
+
+.btn--ball:hover::after { transform: rotate(180deg); }
+
+/* Text link that behaves like a button in a row of actions. */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-weight: 800;
+  color: var(--berry-deep);
+  text-decoration-color: transparent;
+  transition: text-decoration-color var(--t-fast), gap var(--t-fast) var(--ease-out);
+}
+
+.link-arrow::after {
+  content: "";
+  width: 1.1em; height: 1.1em;
+  background: no-repeat center/contain
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a02458' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15M13 6l6 6-6 6'/%3E%3C/svg%3E");
+}
+
+.link-arrow:hover { gap: 0.8em; text-decoration-color: currentColor; }
+
+/* ==========================================================================
+   Stickers - small rotated labels, like something ironed onto a kit bag
+   ========================================================================== */
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.45em 0.95em;
+  background: var(--sun);
+  color: var(--ink);
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sticker);
+  font-size: var(--step--1);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  transform: rotate(-2.5deg);
+}
+
+.sticker--coral { background: var(--coral); }
+.sticker--sky { background: var(--sky); }
+.sticker--mango { background: var(--mango); }
+.sticker--pitch { background: var(--pitch); color: var(--paper); }
+.sticker--berry { background: var(--berry); color: var(--paper); }
+.sticker--cream { background: var(--paper); }
+.sticker--right { transform: rotate(2.5deg); }
+.sticker--flat { transform: none; }
+
+/* ==========================================================================
+   Photos
+   --------------------------------------------------------------------------
+   One wrapper, a few aspect ratios and an optional tilt. Replacing a photo
+   never means touching the CSS.
+   ========================================================================== */
+.photo {
+  /* Used on both <figure> and <span>, so the display is set explicitly. */
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-photo);
+  background: var(--paper-3);
+  box-shadow: var(--shadow-photo);
+  isolation: isolate;
+}
+
+.photo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-slow) var(--ease-out);
+}
+
+.photo--1x1 { aspect-ratio: 1; }
+.photo--4x3 { aspect-ratio: 4 / 3; }
+.photo--3x2 { aspect-ratio: 3 / 2; }
+.photo--16x9 { aspect-ratio: 16 / 9; }
+.photo--4x5 { aspect-ratio: 4 / 5; }
+.photo--3x4 { aspect-ratio: 3 / 4; }
+.photo--tall { aspect-ratio: 2 / 3; }
+
+.photo--round { border-radius: var(--radius-l); }
+.photo--circle { border-radius: 50%; }
+.photo--mirror { border-radius: 6px 28px 6px 28px; }
+
+.photo--framed { border: var(--border); }
+
+.photo--tilt-l { transform: rotate(-2deg); }
+.photo--tilt-r { transform: rotate(2deg); }
+.photo--tilt-l-lg { transform: rotate(-3.5deg); }
+.photo--tilt-r-lg { transform: rotate(3.5deg); }
+
+/* Zoom on hover, but only where a pointer can actually hover. */
+@media (hover: hover) {
+  .photo--zoom:hover > img { transform: scale(1.055); }
+}
+
+/* Caption that sits over the bottom of the image. */
+.photo__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.5rem 1rem 0.9rem;
+  background: linear-gradient(to top, rgba(28, 20, 36, 0.88), transparent);
+  color: var(--paper);
+  font-size: var(--step--1);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* A strip of tape holding a photo to the page. */
+.photo--taped { overflow: visible; }
+.photo--taped > img { border-radius: var(--radius-photo); }
+
+.photo--taped::before {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  width: 5.5rem;
+  height: 1.55rem;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(255, 224, 138, 0.82);
+  border-left: 1px dashed rgba(36, 27, 46, 0.18);
+  border-right: 1px dashed rgba(36, 27, 46, 0.18);
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.card {
+  position: relative;
+  padding: clamp(1.35rem, 1rem + 1.2vw, 2rem);
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--t-med) var(--ease-out),
+              box-shadow var(--t-med) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .card--hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 0 var(--hairline), 0 26px 44px -22px rgba(36, 27, 46, 0.42);
+  }
+}
+
+.card--bold {
+  border: var(--border);
+  box-shadow: var(--shadow-sticker);
+}
+
+@media (hover: hover) {
+  .card--bold.card--hover:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+}
+
+.card--pitch { background: var(--pitch-wash); }
+.card--coral { background: var(--coral-wash); }
+.card--sky { background: var(--sky-wash); }
+.card--berry { background: var(--berry-wash); }
+.card--sun { background: var(--sun); }
+
+.card__title { margin-bottom: 0.5rem; }
+.card__body { color: var(--ink-soft); }
+
+/* A card that is entirely clickable, without nesting the whole thing in an
+   anchor. The link stays the accessible target; the overlay just widens the
+   hit area. */
+.card--linked { cursor: pointer; }
+.card--linked .card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+/* ==========================================================================
+   Icon tiles - the small illustrated squares in "Why cricket?"
+   ========================================================================== */
+.icon-tile {
+  display: grid;
+  place-items: center;
+  width: 4.25rem;
+  aspect-ratio: 1;
+  flex: none;
+  border: var(--border);
+  border-radius: 20px 7px 20px 7px;
+  background: var(--sun);
+  box-shadow: var(--shadow-sticker);
+  transition: transform var(--t-med) var(--ease-spring);
+}
+
+.icon-tile svg { width: 56%; height: auto; }
+
+.icon-tile--coral { background: var(--coral); }
+.icon-tile--sky { background: var(--sky); }
+.icon-tile--pitch { background: var(--pitch); color: var(--paper); }
+.icon-tile--berry { background: var(--berry); color: var(--paper); }
+.icon-tile--mango { background: var(--mango); }
+
+/* ==========================================================================
+   Numbers / stats
+   ========================================================================== */
+/* The label is first in the DOM so <dl> stays valid and a screen reader
+   reads "girls have trained with us, 120". Sighted order is reversed. */
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+}
+
+/* Counting numbers need a box that can hold a reserved width. */
+[data-count] { display: inline-block; }
+
+.stat__value {
+  display: block;
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 60, "WONK" 1;
+  font-size: var(--step-5);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.stat__label {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: var(--step-0);
+  font-weight: 600;
+  line-height: 1.35;
+  color: color-mix(in srgb, currentColor 78%, transparent);
+  max-width: 16ch;
+  margin-inline: auto;
+}
+
+/* ==========================================================================
+   Accordion - the parents' questions
+   ========================================================================== */
+.qa {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.qa:first-of-type { border-top: 1px solid var(--hairline); }
+
+.qa > summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding: 1.15rem 0.25rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--display);
+  font-variation-settings: var(--display-settings);
+  font-size: var(--step-1);
+  font-weight: 700;
+  line-height: 1.3;
+  transition: color var(--t-fast);
+}
+
+.qa > summary::-webkit-details-marker { display: none; }
+.qa > summary:hover { color: var(--berry-deep); }
+
+.qa > summary::after {
+  content: "";
+  flex: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  margin-top: 0.1rem;
+  border: var(--border);
+  border-radius: 50%;
+  background: var(--sun) no-repeat center/0.85rem
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23241b2e' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E");
+  transition: transform var(--t-med) var(--ease-spring),
+              background-color var(--t-fast);
+}
+
+.qa[open] > summary::after {
+  transform: rotate(135deg);
+  background-color: var(--coral);
+}
+
+.qa__answer {
+  padding: 0 0 1.4rem;
+  max-width: 58ch;
+  color: var(--ink-soft);
+}
+
+.qa__answer > * + * { margin-top: 0.7rem; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+.form { display: grid; gap: var(--space-m); }
+
+.form__row {
+  display: grid;
+  gap: var(--space-m);
+}
+
+@media (min-width: 40em) {
+  .form__row--2 { grid-template-columns: 1fr 1fr; }
+}
+
+.field { display: grid; gap: 0.4rem; }
+
+.field > label {
+  font-size: var(--step--1);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.field__hint {
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+  line-height: 1.45;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--paper);
+  border: 2px solid var(--hairline);
+  border-radius: var(--radius-m);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.field textarea { min-height: 8.5rem; resize: vertical; }
+
+.field select {
+  appearance: none;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235d5169' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.95rem center;
+  background-size: 1.05rem;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover { border-color: var(--ink-faint); }
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: none;
+  border-color: var(--pitch);
+  box-shadow: 0 0 0 3px var(--pitch-wash);
+}
+
+.field input:user-invalid,
+.field textarea:user-invalid {
+  border-color: var(--ball);
+  box-shadow: 0 0 0 3px var(--coral-wash);
+}
+
+/* Checkbox group with a large, easy target. */
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid var(--hairline);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  cursor: pointer;
+  transition: border-color var(--t-fast), background-color var(--t-fast);
+}
+
+.check:hover { border-color: var(--ink-faint); }
+
+.check input {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.22rem;
+  accent-color: var(--pitch);
+}
+
+.check:has(input:checked) {
+  border-color: var(--pitch);
+  background: var(--pitch-wash);
+}
+
+.check:has(input:focus-visible) {
+  outline: 3px solid var(--pitch);
+  outline-offset: 2px;
+}
+
+.check span { font-weight: 600; font-size: var(--step--1); line-height: 1.4; }
+
+.form__note {
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+  max-width: 48ch;
+}
+
+/* Live status message after submit. */
+.form__status {
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-m);
+  font-weight: 700;
+  font-size: var(--step--1);
+}
+
+.form__status:empty { display: none; }
+.form__status[data-state="ok"] { background: var(--pitch-wash); color: var(--pitch-deep); }
+.form__status[data-state="error"] { background: var(--coral-wash); color: #8e1a13; }
+.form__status[data-state="busy"] { background: var(--sky-wash); color: #17566a; }
+
+/* ==========================================================================
+   Header and navigation
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-med), background-color var(--t-med),
+              box-shadow var(--t-med);
+}
+
+.site-header.is-stuck {
+  border-bottom-color: var(--hairline);
+  background: color-mix(in srgb, var(--paper) 96%, transparent);
+  box-shadow: 0 10px 30px -22px rgba(36, 27, 46, 0.5);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  min-height: var(--nav-h);
+}
+
+/* ---- Wordmark ----------------------------------------------------------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: auto;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 50, "WONK" 1;
+  font-weight: 800;
+  font-size: var(--step-1);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.brand__ball {
+  width: 2.3rem;
+  aspect-ratio: 1;
+  flex: none;
+  transition: transform var(--t-med) var(--ease-spring);
+}
+
+.brand:hover .brand__ball { transform: rotate(-22deg) scale(1.06); }
+
+.brand__text { display: grid; }
+
+.brand__sub {
+  font-family: var(--body);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--berry-deep);
+}
+
+/* ---- Desktop links ------------------------------------------------------ */
+.nav__list {
+  display: none;
+  align-items: center;
+  gap: clamp(0.35rem, 0.1rem + 0.9vw, 1.1rem);
+  list-style: none;
+  margin: 0;
+}
+
+.nav__link {
+  position: relative;
+  display: block;
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--radius-s);
+  color: var(--ink);
+  font-size: var(--step--1);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--t-fast);
+}
+
+/* An underline that draws in from the left, like a ball rolling across. */
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0.7rem;
+  right: 0.7rem;
+  bottom: 0.28rem;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--coral);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-med) var(--ease-out);
+}
+
+.nav__link:hover { color: var(--berry-deep); }
+.nav__link:hover::after { transform: scaleX(1); }
+
+/* Current page, set from the page's own front matter - no JS involved. */
+body[data-page="home"] .nav__link[data-nav="home"],
+body[data-page="about"] .nav__link[data-nav="about"],
+body[data-page="academy"] .nav__link[data-nav="academy"],
+body[data-page="teams"] .nav__link[data-nav="teams"],
+body[data-page="get-involved"] .nav__link[data-nav="get-involved"],
+body[data-page="stories"] .nav__link[data-nav="stories"],
+body[data-page="contact"] .nav__link[data-nav="contact"] {
+  color: var(--berry-deep);
+}
+
+body[data-page="home"] .nav__link[data-nav="home"]::after,
+body[data-page="about"] .nav__link[data-nav="about"]::after,
+body[data-page="academy"] .nav__link[data-nav="academy"]::after,
+body[data-page="teams"] .nav__link[data-nav="teams"]::after,
+body[data-page="get-involved"] .nav__link[data-nav="get-involved"]::after,
+body[data-page="stories"] .nav__link[data-nav="stories"]::after,
+body[data-page="contact"] .nav__link[data-nav="contact"]::after {
+  transform: scaleX(1);
+  background: var(--berry);
+}
+
+.nav__cta { display: none; }
+
+@media (min-width: 62em) {
+  .nav__list { display: flex; }
+  .nav__cta { display: inline-flex; }
+}
+
+/* ---- Hamburger ---------------------------------------------------------- */
+.nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-left: auto;
+  padding: 0.55rem 0.9rem 0.55rem 1rem;
+  background: var(--paper);
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  box-shadow: 2px 2px 0 var(--ink);
+  font-size: var(--step--1);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.nav__toggle:active { transform: translate(2px, 2px); box-shadow: none; }
+
+.nav__bars {
+  position: relative;
+  width: 1.15rem;
+  height: 0.75rem;
+  flex: none;
+}
+
+.nav__bars span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  border-radius: 2px;
+  background: var(--ink);
+  transition: transform var(--t-med) var(--ease-out),
+              opacity var(--t-fast) linear;
+}
+
+.nav__bars span:nth-child(1) { top: 0; }
+.nav__bars span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.nav__bars span:nth-child(3) { bottom: 0; }
+
+[aria-expanded="true"] .nav__bars span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+[aria-expanded="true"] .nav__bars span:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] .nav__bars span:nth-child(3) {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* ---- Mobile panel ------------------------------------------------------- */
+.nav__panel {
+  position: fixed;
+  inset: var(--nav-h) 0 0 0;
+  z-index: 99;
+  display: grid;
+  align-content: start;
+  gap: var(--space-2xs);
+  padding: var(--space-l) var(--gutter) var(--space-3xl);
+  background: var(--paper);
+  border-top: 1px solid var(--hairline);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.75rem);
+  transition: opacity var(--t-med) var(--ease-out),
+              transform var(--t-med) var(--ease-out),
+              visibility var(--t-med) step-end;
+}
+
+.nav__panel.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--t-med) var(--ease-out),
+              transform var(--t-med) var(--ease-out),
+              visibility 0s;
+}
+
+.nav__panel-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  padding: 0.95rem 0.25rem;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--ink);
+  font-family: var(--display);
+  font-variation-settings: var(--display-settings);
+  font-size: var(--step-2);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav__panel-link::after {
+  content: "";
+  width: 1.1rem; height: 1.1rem;
+  background: no-repeat center/contain
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c4326f' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  opacity: 0.55;
+}
+
+body[data-page="home"] .nav__panel-link[data-nav="home"],
+body[data-page="about"] .nav__panel-link[data-nav="about"],
+body[data-page="academy"] .nav__panel-link[data-nav="academy"],
+body[data-page="teams"] .nav__panel-link[data-nav="teams"],
+body[data-page="get-involved"] .nav__panel-link[data-nav="get-involved"],
+body[data-page="stories"] .nav__panel-link[data-nav="stories"],
+body[data-page="contact"] .nav__panel-link[data-nav="contact"] {
+  color: var(--berry-deep);
+}
+
+body[data-page="home"] .nav__panel-link[data-nav="home"]::after,
+body[data-page="about"] .nav__panel-link[data-nav="about"]::after,
+body[data-page="academy"] .nav__panel-link[data-nav="academy"]::after,
+body[data-page="teams"] .nav__panel-link[data-nav="teams"]::after,
+body[data-page="get-involved"] .nav__panel-link[data-nav="get-involved"]::after,
+body[data-page="stories"] .nav__panel-link[data-nav="stories"]::after,
+body[data-page="contact"] .nav__panel-link[data-nav="contact"]::after {
+  opacity: 1;
+}
+
+.nav__panel-foot {
+  margin-top: var(--space-l);
+  display: grid;
+  gap: var(--space-s);
+  justify-items: start;
+}
+
+/* Stop the page behind the panel from scrolling. */
+body.nav-open { overflow: hidden; }
+
+/* Declared after the hamburger's own rules so it actually wins. */
+@media (min-width: 62em) {
+  .nav__toggle { display: none; }
+  .nav__panel { display: none; }
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  position: relative;
+  background: var(--ink);
+  color: color-mix(in srgb, var(--paper) 88%, transparent);
+  overflow: hidden;
+}
+
+.site-footer a { color: var(--paper); }
+.site-footer a:hover { color: var(--sun); }
+
+.footer__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-xl);
+  padding-block: clamp(2.75rem, 2rem + 4vw, 4.5rem);
+}
+
+@media (min-width: 52em) {
+  .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; }
+}
+
+@media (min-width: 72em) {
+  .footer__grid { grid-template-columns: 1.6fr 1fr 1fr 1.1fr; }
+}
+
+.footer__title {
+  font-family: var(--body);
+  font-size: var(--step--1);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sun);
+  margin-bottom: var(--space-s);
+}
+
+.footer__list {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  font-size: var(--step--1);
+}
+
+.footer__list a { text-decoration: none; }
+.footer__list a:hover { text-decoration: underline; }
+
+.footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 50, "WONK" 1;
+  font-size: var(--step-2);
+  font-weight: 800;
+  color: var(--paper);
+  text-decoration: none;
+  line-height: 1.1;
+}
+
+.footer__blurb {
+  margin-top: var(--space-s);
+  max-width: 34ch;
+  font-size: var(--step--1);
+  line-height: 1.6;
+}
+
+.socials { display: flex; gap: 0.6rem; margin-top: var(--space-m); }
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  aspect-ratio: 1;
+  border: 2px solid color-mix(in srgb, var(--paper) 30%, transparent);
+  border-radius: 50%;
+  transition: background-color var(--t-fast), border-color var(--t-fast),
+              transform var(--t-fast) var(--ease-out);
+}
+
+.socials svg { width: 1.15rem; height: auto; }
+
+.socials a:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.footer__bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s) var(--space-m);
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-m);
+  border-top: 1px solid color-mix(in srgb, var(--paper) 16%, transparent);
+  font-size: var(--step--1);
+  color: color-mix(in srgb, var(--paper) 62%, transparent);
+}
+
+.footer__bar a { text-decoration: none; }
+
+/* ==========================================================================
+   Placeholder flag
+   --------------------------------------------------------------------------
+   Content still waiting on real information is wrapped in <span class="tbc">.
+   It shows a faint dotted underline on the site and, with ?placeholders in
+   the URL, lights up so nothing ships half-finished.
+   ========================================================================== */
+.tbc {
+  border-bottom: 1.5px dotted color-mix(in srgb, currentColor 40%, transparent);
+}
+
+body.show-placeholders .tbc {
+  background: var(--sun);
+  outline: 2px dashed var(--ball);
+  outline-offset: 1px;
+  border-radius: 3px;
+}

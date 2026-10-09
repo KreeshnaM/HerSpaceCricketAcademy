@@ -1,0 +1,51 @@
+<!--
+  Impact numbers. The figures live in site.config.json under "stats" so they
+  only ever need updating in one place. data-count makes them count up when
+  they scroll into view; the final value is in the HTML either way.
+-->
+<section class="section impact section--pitch" id="impact">
+  <div class="stripes" aria-hidden="true"></div>
+  <hr class="seam seam--cream">
+
+  <div class="wrap impact__inner">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow eyebrow--on-dark">Where we have got to</p>
+        <h2>Small club. <span class="squiggle"><span>Big seasons.</span></span></h2>
+      </div>
+      <p class="lede lede--wide">
+        None of this was funded or planned. It is just what happens when enough
+        people give up a Saturday morning.
+      </p>
+    </div>
+
+    <dl class="impact__grid" data-reveal-group="110">
+      <div class="stat" data-reveal>
+        <dt class="stat__label">{{ stats.girls_trained_label }}</dt>
+        <dd class="stat__value"><span class="tbc" data-count>{{ stats.girls_trained }}</span></dd>
+      </div>
+      <div class="stat" data-reveal>
+        <dt class="stat__label">{{ stats.volunteer_coaches_label }}</dt>
+        <dd class="stat__value"><span class="tbc" data-count>{{ stats.volunteer_coaches }}</span></dd>
+      </div>
+      <div class="stat" data-reveal>
+        <dt class="stat__label">{{ stats.sessions_label }}</dt>
+        <dd class="stat__value"><span class="tbc" data-count>{{ stats.sessions }}</span></dd>
+      </div>
+      <div class="stat" data-reveal>
+        <dt class="stat__label">{{ stats.years_label }}</dt>
+        <dd class="stat__value"><span class="tbc" data-count>{{ stats.years }}</span></dd>
+      </div>
+    </dl>
+
+    <div class="impact__foot">
+      <p>
+        The number we actually care about is how many girls come back the
+        following week. That one has never gone down.
+      </p>
+      <a class="btn btn--sun btn--ball" href="about.html">Read our story</a>
+    </div>
+  </div>
+
+  <hr class="seam seam--cream">
+</section>

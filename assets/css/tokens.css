@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Design tokens
+   --------------------------------------------------------------------------
+   The whole look of the site comes from the values in this file. Change a
+   colour here and it changes everywhere.
+
+   The palette is warm cream paper and deep plum ink, with five joyful
+   accents. It is deliberately not navy-and-gold, and deliberately not pastel
+   pink - the aim is a grassroots club that girls actually want to belong to.
+
+   Contrast: every text-on-colour pairing used in the site passes WCAG AA.
+   Notably, the primary button is coral with INK text (5.35:1), not white
+   text - white on coral only reaches 3.1:1 and would fail.
+   ========================================================================== */
+
+:root {
+  /* ---- Paper and ink ---------------------------------------------------- */
+  --paper:            #fff7ef;  /* page background - warm, never pure white */
+  --paper-2:          #fdeee0;  /* alternating section background */
+  --paper-3:          #f8e3d1;  /* deepest cream, for insets */
+  --ink:              #241b2e;  /* body text - plum-black, never #000 */
+  --ink-soft:         #5d5169;  /* secondary text, 5.9:1 on paper */
+  /* Captions and meta. Dark enough to clear 4.5:1 on the DARKEST cream
+     (--paper-3), not just on --paper: 4.73:1 there, 5.54:1 on paper. */
+  --ink-faint:        #6b6079;
+  --hairline:         #e7d6c6;  /* borders on paper */
+
+  /* ---- Accents ---------------------------------------------------------- */
+  --coral:            #ff5a47;  /* primary energy - CTAs */
+  --coral-deep:       #ea3f2b;
+  --coral-wash:       #ffe4de;
+  --berry:            #c4326f;  /* confident magenta, used with restraint */
+  --berry-deep:       #a02458;
+  --berry-wash:       #fadfea;
+  --pitch:            #2f7d52;  /* cricket-ground green */
+  --pitch-deep:       #1b4d33;
+  --pitch-wash:       #dff0e4;
+  --sky:              #3fa7c4;
+  --sky-wash:         #ddf0f5;
+  --mango:            #ffb13d;
+  --sun:              #ffe08a;
+  --ball:             #b7202b;  /* cricket ball leather */
+
+  /* ---- Semantic --------------------------------------------------------- */
+  --bg:               var(--paper);
+  --text:             var(--ink);
+  --link:             var(--berry-deep);
+  --focus:            #1b4d33;
+  --focus-ring:       0 0 0 3px var(--paper), 0 0 0 6px var(--pitch);
+
+  /* ---- Type ------------------------------------------------------------- */
+  --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --body: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+          "Segoe UI", Roboto, sans-serif;
+
+  /* A soft, slightly wonky display face keeps things human. These are the
+     Fraunces variable axes - SOFT rounds the terminals, WONK lets a few
+     letters lean. Both are dialled low so it stays grown-up. */
+  --display-settings: "SOFT" 40, "WONK" 1;
+
+  /* Fluid scale. Each step is clamp(min, preferred, max). */
+  --step--1: clamp(0.83rem, 0.80rem + 0.15vw, 0.92rem);
+  --step-0:  clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1:  clamp(1.2rem, 1.1rem + 0.45vw, 1.45rem);
+  --step-2:  clamp(1.45rem, 1.25rem + 0.9vw, 2rem);
+  --step-3:  clamp(1.8rem, 1.45rem + 1.6vw, 2.75rem);
+  --step-4:  clamp(2.2rem, 1.6rem + 2.8vw, 3.9rem);
+  --step-5:  clamp(2.7rem, 1.7rem + 4.6vw, 5.6rem);
+  --step-6:  clamp(3.2rem, 1.6rem + 7vw, 8rem);
+
+  --leading-tight: 1.02;
+  --leading-snug: 1.18;
+  --leading-body: 1.62;
+
+  /* ---- Space ------------------------------------------------------------ */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-s:   1rem;
+  --space-m:   1.5rem;
+  --space-l:   2rem;
+  --space-xl:  3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Vertical rhythm between major sections - one knob for the whole site. */
+  --section-y: clamp(3.5rem, 2rem + 7vw, 7.5rem);
+  --gutter: clamp(1.15rem, 0.8rem + 2.2vw, 2.5rem);
+
+  /* ---- Shape ------------------------------------------------------------ */
+  --radius-s:  6px;
+  --radius-m:  14px;
+  --radius-l:  24px;
+  --radius-xl: 36px;
+  --radius-pill: 999px;
+  /* Photos get an asymmetric radius - a small nod to a scrapbook corner. */
+  --radius-photo: 28px 6px 28px 6px;
+
+  --border: 2px solid var(--ink);
+  --shadow-sticker: 3px 3px 0 var(--ink);
+  --shadow-card: 0 2px 0 var(--hairline), 0 14px 30px -18px rgba(36, 27, 46, 0.35);
+  --shadow-lift: 6px 8px 0 var(--ink);
+  --shadow-photo: 0 24px 50px -28px rgba(36, 27, 46, 0.55);
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --measure: 62ch;        /* comfortable reading width */
+  --width-page: 78rem;
+  --width-wide: 90rem;
+  --width-text: 44rem;
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.46, 0.64, 1);
+  --t-fast: 140ms;
+  --t-med: 260ms;
+  --t-slow: 620ms;
+
+  --nav-h: 4.5rem;
+}
+
+@media (min-width: 60em) {
+  :root { --nav-h: 5.5rem; }
+}
+
+/* Anyone who has asked their system to calm down gets a calm site. Every
+   animation in the stylesheet is additive, so switching them off here is
+   enough - nothing depends on an animation to become visible. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 1ms;
+    --t-med: 1ms;
+    --t-slow: 1ms;
+  }
+}

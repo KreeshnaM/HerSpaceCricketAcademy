@@ -1,0 +1,48 @@
+<form class="form" data-form
+      data-endpoint="{{ form_endpoint }}"
+      data-mailto="{{ email }}"
+      data-subject="Question from the website"
+      data-thanks="Thank you - we've got your message. We're all volunteers, so give us a couple of days and we'll come back to you.">
+
+  <input type="hidden" name="_subject" value="Website question">
+
+  <div class="form__row form__row--2">
+    <p class="field">
+      <label for="ask-name">Your name</label>
+      <input id="ask-name" name="name" type="text" autocomplete="name" required>
+    </p>
+    <p class="field">
+      <label for="ask-email">Email</label>
+      <input id="ask-email" name="email" type="email" autocomplete="email" required>
+    </p>
+  </div>
+
+  <p class="field">
+    <label for="ask-who">I'm asking as...</label>
+    <select id="ask-who" name="who">
+      <option value="A parent or guardian">A parent or guardian</option>
+      <option value="A girl who wants to play">A girl who wants to play</option>
+      <option value="Someone who wants to volunteer">Someone who wants to volunteer</option>
+      <option value="A school or another club">A school or another club</option>
+      <option value="A business or funder">A business or funder</option>
+      <option value="Something else">Something else</option>
+    </select>
+  </p>
+
+  <p class="field">
+    <label for="ask-message">Your question</label>
+    <textarea id="ask-message" name="message" required
+              placeholder="Ask us anything. No question is too small - &quot;what does she wear?&quot; is one of the most common ones we get."></textarea>
+  </p>
+
+  <label class="check">
+    <input type="checkbox" name="consent" value="yes" required>
+    <span>Yes, you can reply to me at this address.</span>
+  </label>
+
+  <div class="cluster">
+    <button class="btn btn--primary btn--big btn--ball" type="submit">Send your question</button>
+  </div>
+
+  <p class="form__status" role="status" aria-live="polite"></p>
+</form>
