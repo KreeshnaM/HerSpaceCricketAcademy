@@ -182,6 +182,20 @@
 .photo--circle { border-radius: 50%; }
 .photo--mirror { border-radius: 6px 28px 6px 28px; }
 
+.photo--logo {
+  display: grid;
+  place-items: center;
+  background: var(--coral-wash);
+}
+
+.photo--logo > img {
+  width: 82%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
 .photo--framed { border: var(--border); }
 
 .photo--tilt-l { transform: rotate(-2deg); }
