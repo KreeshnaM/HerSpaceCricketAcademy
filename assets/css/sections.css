@@ -520,6 +520,28 @@
 .offer__list li::marker { color: var(--coral); }
 
 /* ==========================================================================
+   Partner acknowledgement
+   ========================================================================== */
+.partner-thanks__inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-s);
+  text-align: center;
+}
+
+.partner-thanks__inner .lede { max-width: 55ch; }
+
+.partner-thanks__logo {
+  display: block;
+  width: min(100%, 52rem);
+  height: auto;
+  margin-top: var(--space-m);
+  border: var(--border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-photo);
+}
+
+/* ==========================================================================
    Impact numbers
    ========================================================================== */
 .impact { position: relative; overflow: hidden; }
