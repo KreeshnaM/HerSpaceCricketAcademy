@@ -1,11 +1,11 @@
 {
   "_comment": "Every real detail on the website comes from this file. Anything wrapped in [square brackets] is a placeholder waiting for your information - search the built site for '[' to find any you have missed. Change a value here, run `python build.py`, and it updates on every page.",
 
-  "academy_name": "HerSpace Girls Cricket Academy",
-  "tagline": "Where girls play, grow and belong.",
-  "default_description": "A volunteer-led cricket academy for girls. Come and learn the game, make friends, and find out what you can do. No experience needed.",
+  "academy_name": "HerSpace National Cricket Academy",
+  "tagline": "Where talent plays, grows and belongs.",
+  "default_description": "A volunteer-led cricket academy for aspiring cricketers. Come and learn the game, build confidence, and discover your potential. No experience needed.",
 
-  "email": "teehjcharity@gmail.com",
+  "email": "herspacenationalcricketacademy@gmail.com",
   "phone": "0758001484",
 
   "ground_name": "Hodari Lavington",
