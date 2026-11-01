@@ -482,6 +482,32 @@
   .action__item:nth-child(6) { margin-top: -1rem; }
 }
 
+.action__event {
+  margin: clamp(2.5rem, 6vw, 5rem) 0 0;
+}
+
+.action__event-photos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-s);
+}
+
+.action__event-caption {
+  margin-top: var(--space-s);
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (min-width: 42em) {
+  .action__event-photos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
 /* Swipe hint, phones only. */
 .action__hint {
   display: flex;
