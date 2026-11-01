@@ -47,6 +47,7 @@ ul, ol { padding: 0; }
 :where(h1, h2, h3, h4) {
   font-family: var(--display);
   font-variation-settings: var(--display-settings);
+  color: var(--navy);
   font-weight: 700;
   line-height: var(--leading-snug);
   text-wrap: balance;
@@ -78,14 +79,14 @@ strong, b { font-weight: 700; }
    Visible, chunky and always on-brand. Mouse users never see it; keyboard
    users can never lose it. */
 :focus-visible {
-  outline: 3px solid var(--pitch);
+  outline: 3px solid var(--navy);
   outline-offset: 3px;
   border-radius: var(--radius-s);
 }
 
 .btn:focus-visible,
 .nav__cta:focus-visible {
-  outline: 3px solid var(--ink);
+  outline: 3px solid var(--navy);
   outline-offset: 4px;
 }
 
@@ -98,7 +99,7 @@ strong, b { font-weight: 700; }
   left: var(--space-s);
   z-index: 200;
   transform: translateY(-120%);
-  background: var(--ink);
+  background: var(--navy);
   color: var(--paper);
   padding: 0.7rem 1.1rem;
   border-radius: 0 0 var(--radius-m) var(--radius-m);
@@ -163,7 +164,7 @@ br.br-md { display: none; }
   border-radius: 2px;
 }
 
-.eyebrow--on-dark { color: var(--sun); }
+.eyebrow--on-dark { color: var(--paper); }
 .eyebrow--plain::before { display: none; }
 
 /* Hand-drawn highlight behind a word or two inside a heading. The SVG is a

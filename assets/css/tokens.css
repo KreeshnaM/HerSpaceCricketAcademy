@@ -4,48 +4,46 @@
    The whole look of the site comes from the values in this file. Change a
    colour here and it changes everywhere.
 
-   The palette is warm cream paper and deep plum ink, with bright pink accents
-   drawn from the academy logo.
+   The palette is white, deep navy and pale blush pink.
 
    Contrast: every text-on-colour pairing used in the site passes WCAG AA.
-   Notably, the primary button uses dark ink text on light pink for strong
-   contrast.
+   White text is reserved for navy backgrounds; body copy remains navy on
+   white and blush.
    ========================================================================== */
 
 :root {
   /* ---- Paper and ink ---------------------------------------------------- */
-  --paper:            #fff7ef;  /* page background - warm, never pure white */
-  --paper-2:          #fdeee0;  /* alternating section background */
-  --paper-3:          #f8e3d1;  /* deepest cream, for insets */
-  --ink:              #241b2e;  /* body text - plum-black, never #000 */
-  --ink-soft:         #5d5169;  /* secondary text, 5.9:1 on paper */
-  /* Captions and meta. Dark enough to clear 4.5:1 on the DARKEST cream
-     (--paper-3), not just on --paper: 4.73:1 there, 5.54:1 on paper. */
-  --ink-faint:        #6b6079;
-  --hairline:         #e7d6c6;  /* borders on paper */
+  --paper:            #FFFFFF;  /* primary brand anchor */
+  --paper-2:          #FDE7F0;  /* soft blush section background */
+  --paper-3:          #FFF4F8;  /* lighter blush for insets */
+  --navy:             #0B1F4B;  /* headings and key messages */
+  --ink:              #26345A;  /* body copy on white and blush */
+  --ink-soft:         #26345A;
+  --ink-faint:        #26345A;
+  --hairline:         #F5C6DB;  /* blush borders */
 
   /* ---- Accents ---------------------------------------------------------- */
-  --coral:            #f58bb6;  /* logo pink - primary CTAs */
-  --coral-deep:       #b52b68;
-  --coral-wash:       #fde3ee;
-  --berry:            #c4326f;  /* confident magenta, used with restraint */
-  --berry-deep:       #a02458;
-  --berry-wash:       #fadfea;
-  --pitch:            #2f7d52;  /* cricket-ground green */
-  --pitch-deep:       #1b4d33;
-  --pitch-wash:       #dff0e4;
-  --sky:              #3fa7c4;
-  --sky-wash:         #ddf0f5;
-  --mango:            #f1a2c1;
-  --sun:              #f8c2d9;
-  --ball:             #b7202b;  /* cricket ball leather */
+  --coral:            #F5C6DB;  /* blush pink for primary CTAs */
+  --coral-deep:       #0B1F4B;
+  --coral-wash:       #FDE7F0;
+  --berry:            #26345A;
+  --berry-deep:       #0B1F4B;
+  --berry-wash:       #FDE7F0;
+  --pitch:            #0B1F4B;
+  --pitch-deep:       #0B1F4B;
+  --pitch-wash:       #FDE7F0;
+  --sky:              #26345A;
+  --sky-wash:         #FDE7F0;
+  --mango:            #F5C6DB;
+  --sun:              #FDE7F0;
+  --ball:             #0B1F4B;
 
   /* ---- Semantic --------------------------------------------------------- */
   --bg:               var(--paper);
   --text:             var(--ink);
-  --link:             var(--berry-deep);
-  --focus:            #1b4d33;
-  --focus-ring:       0 0 0 3px var(--paper), 0 0 0 6px var(--pitch);
+  --link:             var(--navy);
+  --focus:             var(--navy);
+  --focus-ring:       0 0 0 3px var(--paper), 0 0 0 6px var(--navy);
 
   /* ---- Type ------------------------------------------------------------- */
   --display: "Fraunces", "Iowan Old Style", Georgia, serif;
@@ -95,11 +93,11 @@
   /* Photos get an asymmetric radius - a small nod to a scrapbook corner. */
   --radius-photo: 28px 6px 28px 6px;
 
-  --border: 2px solid var(--ink);
-  --shadow-sticker: 3px 3px 0 var(--ink);
-  --shadow-card: 0 2px 0 var(--hairline), 0 14px 30px -18px rgba(36, 27, 46, 0.35);
-  --shadow-lift: 6px 8px 0 var(--ink);
-  --shadow-photo: 0 24px 50px -28px rgba(36, 27, 46, 0.55);
+  --border: 2px solid var(--navy);
+  --shadow-sticker: 3px 3px 0 var(--navy);
+  --shadow-card: 0 2px 0 var(--hairline), 0 14px 30px -18px rgba(11, 31, 75, 0.24);
+  --shadow-lift: 6px 8px 0 var(--navy);
+  --shadow-photo: 0 24px 50px -28px rgba(11, 31, 75, 0.38);
 
   /* ---- Layout ----------------------------------------------------------- */
   --measure: 62ch;        /* comfortable reading width */

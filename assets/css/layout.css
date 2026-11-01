@@ -32,15 +32,14 @@
   color: var(--paper);
 }
 
-/* The deeper berry, not the bright one: at --berry the semi-transparent cream
-   text inside this band only reaches 3.6:1, which is not enough. */
+/* Use the deep navy on dark bands so white text remains readable. */
 .section--berry {
   background: var(--berry-deep);
   color: var(--paper);
 }
 
 .section--ink {
-  background: var(--ink);
+  background: var(--navy);
   color: var(--paper);
 }
 
@@ -163,7 +162,7 @@
 }
 
 /* ---- Paper grain -------------------------------------------------------
-   A faint fibre texture over the whole page so the cream reads as paper
+   A faint fibre texture over the whole page so the white reads as paper
    rather than as a flat fill. Very low opacity - you feel it, you don't see
    it. */
 .grain {
@@ -190,7 +189,7 @@
   background: repeating-linear-gradient(
     102deg,
     transparent 0 42px,
-    rgba(255, 247, 239, 0.75) 42px 84px
+    rgba(255, 255, 255, 0.75) 42px 84px
   );
 }
 

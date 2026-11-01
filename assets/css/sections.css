@@ -243,15 +243,15 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(88deg, rgba(28, 20, 36, 0.9) 4%,
-              rgba(28, 20, 36, 0.62) 46%, rgba(28, 20, 36, 0.18) 100%);
+  background: linear-gradient(88deg, rgba(11, 31, 75, 0.9) 4%,
+              rgba(11, 31, 75, 0.62) 46%, rgba(11, 31, 75, 0.18) 100%);
 }
 
 .hero--fullbleed .hero__copy { color: var(--paper); max-width: 40rem; }
 .hero--fullbleed .hero__title { color: var(--paper); }
 .hero--fullbleed .hero__lede { color: color-mix(in srgb, var(--paper) 88%, transparent); }
 .hero--fullbleed .hero__facts { border-color: color-mix(in srgb, var(--paper) 30%, transparent); }
-.hero--fullbleed .hero__fact-label { color: var(--sun); }
+.hero--fullbleed .hero__fact-label { color: var(--paper); }
 
 /* ==========================================================================
    Page header - the hero stand-in on inner pages
@@ -602,7 +602,7 @@
 
 @media (min-width: 58em) { .impact__grid { grid-template-columns: repeat(4, 1fr); } }
 
-.impact .stat__value { color: var(--sun); }
+.impact .stat__value { color: var(--paper); }
 
 .impact__foot {
   margin-top: clamp(2rem, 1.2rem + 3vw, 3.25rem);
@@ -661,9 +661,9 @@
   width: 4.75rem;
   height: 1.7rem;
   transform: rotate(-5deg);
-  background: rgba(241, 162, 193, 0.78);
-  border-left: 1px dashed rgba(36, 27, 46, 0.2);
-  border-right: 1px dashed rgba(36, 27, 46, 0.2);
+  background: rgba(245, 198, 219, 0.78);
+  border-left: 1px dashed rgba(11, 31, 75, 0.2);
+  border-right: 1px dashed rgba(11, 31, 75, 0.2);
 }
 
 .story__quote {
@@ -842,7 +842,7 @@
   /* The darkest stop is kept light enough that ink text on it still clears
      4.5:1 - a deeper red would fail in the corners. */
   background:
-    radial-gradient(80% 120% at 50% 0%, #f7a4c3 0%, var(--coral) 55%, #ee78a6 100%);
+    radial-gradient(80% 120% at 50% 0%, #FFF4F8 0%, var(--coral) 55%, #F5C6DB 100%);
   color: var(--ink);
   text-align: center;
 }
@@ -894,7 +894,7 @@
   width: clamp(1.25rem, 0.8rem + 1.6vw, 2.25rem);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: var(--ink);
+  background: var(--navy);
   transform: translateY(50%);
 }
 
@@ -1013,7 +1013,7 @@
   display: inline-block;
   padding: 0.3em 0.75em;
   margin-bottom: var(--space-s);
-  background: var(--ink);
+  background: var(--navy);
   color: var(--paper);
   border-radius: var(--radius-pill);
   font-size: var(--step--1);
@@ -1091,8 +1091,8 @@
 }
 
 .result--won { background: var(--pitch-wash); color: var(--pitch-deep); }
-.result--lost { background: var(--coral-wash); color: #8e1a13; }
-.result--draw { background: var(--sky-wash); color: #17566a; }
+.result--lost { background: var(--coral-wash); color: var(--navy); }
+.result--draw { background: var(--sky-wash); color: var(--ink); }
 .result--upcoming { background: var(--sun); color: var(--ink); }
 
 /* ---- Honours ----------------------------------------------------------- */
@@ -1176,7 +1176,7 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #17566a;
+  color: var(--ink);
 }
 
 .post__tag--match { background: var(--pitch-wash); color: var(--pitch-deep); }
@@ -1222,7 +1222,7 @@
 }
 
 .section--pitch .pullquote figcaption,
-.section--ink .pullquote figcaption { color: var(--sun); }
+.section--ink .pullquote figcaption { color: var(--paper); }
 
 /* ---- Contact details list --------------------------------------------- */
 .contact-list { list-style: none; display: grid; gap: var(--space-m); }

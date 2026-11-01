@@ -143,8 +143,8 @@ Before you launch, set `site_url` in `site.config.json` and check
 
 ## Notes on the design
 
-- **Colour** is warm cream paper and deep plum ink, with five joyful accents.
-  All of it comes from `assets/css/tokens.css`.
+- **Colour** is white, deep navy and pale blush pink, all defined in
+  `assets/css/tokens.css`.
 - **Contrast** — every text-and-background pairing on the site meets WCAG AA.
   If you change a colour, re-check it; the comments in `tokens.css` explain the
   pairings that are close to the line.
