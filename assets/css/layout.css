@@ -98,16 +98,16 @@
   margin: 0;
   background-repeat: repeat-x;
   background-position: center;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%23b7202b' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M3 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M26 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M3 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3Cpath d='M26 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%230B1F4B' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M3 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M26 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M3 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3Cpath d='M26 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3C/g%3E%3C/svg%3E");
   opacity: 0.55;
 }
 
 .seam--pitch {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%232f7d52' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M3 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M26 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M3 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3Cpath d='M26 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%23F5C6DB' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M3 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M26 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M3 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3Cpath d='M26 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .seam--cream {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%23fff7ef' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M3 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M26 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M3 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3Cpath d='M26 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='14' viewBox='0 0 46 14'%3E%3Cg fill='none' stroke='%23FFFFFF' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M3 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M26 4.4c4.6-2.4 9.4-2.4 14 0'/%3E%3Cpath d='M3 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3Cpath d='M26 9.6c4.6 2.4 9.4 2.4 14 0'/%3E%3C/g%3E%3C/svg%3E");
   opacity: 0.4;
 }
 

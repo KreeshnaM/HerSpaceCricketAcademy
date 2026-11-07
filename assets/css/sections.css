@@ -259,7 +259,7 @@
 .page-header {
   position: relative;
   padding-block: clamp(2.5rem, 1.5rem + 5vw, 5rem) clamp(2rem, 1.2rem + 4vw, 4rem);
-  background: var(--paper-2);
+  background: var(--paper);
   border-bottom: 1px solid var(--hairline);
   overflow: hidden;
 }
@@ -559,21 +559,41 @@
 
 .partner-thanks__logos {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-m);
-  width: min(100%, 52rem);
-  margin-top: var(--space-m);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: var(--space-s);
+  width: min(100%, 36rem);
+  margin-top: var(--space-s);
 }
 
 .partner-thanks__logo {
   display: block;
   width: 100%;
-  height: 100%;
-  min-height: 10rem;
+  height: 5rem;
+  min-height: 0;
+  padding: 0.4rem;
   object-fit: contain;
-  border: var(--border);
-  border-radius: var(--radius-m);
-  box-shadow: var(--shadow-photo);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Smaller section spacing */
+
+.partner-thanks {
+  padding-block: var(--space-l);
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .partner-thanks__logos {
+    gap: 0.5rem;
+  }
+
+  .partner-thanks__logo {
+    height: 4rem;
+  }
 }
 
 /* ==========================================================================
@@ -830,10 +850,14 @@
   overflow: hidden;
   /* The darkest stop is kept light enough that ink text on it still clears
      4.5:1 - a deeper red would fail in the corners. */
-  background:
-    radial-gradient(80% 120% at 50% 0%, #FFF4F8 0%, var(--coral) 55%, #F5C6DB 100%);
-  color: var(--ink);
+  background: var(--navy);
+  color: var(--paper);
   text-align: center;
+}
+
+/* White headings on the navy background */
+.finale :where(h1, h2, h3, h4) {
+  color: var(--paper);
 }
 
 .finale__inner { position: relative; z-index: 2; }
@@ -851,9 +875,7 @@
   max-width: 38ch;
   font-size: var(--step-1);
   font-weight: 600;
-  /* Full ink, not a tint - the title is already much larger, so the hierarchy
-     comes from size rather than from washing this out over the coral. */
-  color: var(--ink);
+  color: color-mix(in srgb, var(--paper) 88%, transparent);
 }
 
 .finale__actions {
@@ -883,7 +905,7 @@
   width: clamp(1.25rem, 0.8rem + 1.6vw, 2.25rem);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: var(--navy);
+  background: var(--paper);
   transform: translateY(50%);
 }
 
@@ -1115,7 +1137,7 @@
   gap: 0.3rem var(--space-m);
   padding: var(--space-m);
   background: var(--paper);
-  border: 1px solid var(--hairline);
+  border: 1px solid var(--navy);
   border-radius: var(--radius-l);
   box-shadow: var(--shadow-card);
 }
@@ -1250,4 +1272,61 @@
   padding: var(--space-l);
   text-align: center;
   color: var(--ink-soft);
+}
+
+
+/* ==========================================================================
+   Girls in action - make event photos swipeable on mobile
+   ========================================================================== */
+
+@media (max-width: 41.99em) {
+  .action__event-photos {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 82%;
+    grid-template-columns: none;
+    gap: var(--space-s);
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+  }
+
+  .action__event-photos > .photo {
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+
+  .action__event-photos > .photo {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  overflow: hidden;
+}
+
+.action__event-photos > .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+}
+
+/* Smaller team photos on mobile */
+@media (max-width: 600px) {
+  .people {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 0.85rem;
+  }
+
+  .person > .photo {
+    width: 85%;
+    margin-inline: auto;
+    aspect-ratio: 3 / 4;
+  }
 }
