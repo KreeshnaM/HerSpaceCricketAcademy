@@ -9,8 +9,8 @@
    moves it into its own shadow, which reads as friendly rather than slick.
    ========================================================================== */
 .btn {
-  --btn-bg: var(--coral);
-  --btn-fg: var(--ink);
+  --btn-bg: var(--navy);
+  --btn-fg: var(--paper);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -46,21 +46,21 @@
 }
 
 /* Variants ---------------------------------------------------------------- */
-.btn--primary { --btn-bg: var(--coral); --btn-fg: var(--ink); }
-.btn--primary:hover { --btn-bg: #F0B1CD; }
+.btn--primary { --btn-bg: var(--navy); --btn-fg: var(--paper); }
+.btn--primary:hover { --btn-bg: var(--ink); }
 
 .btn--ghost {
-  --btn-bg: transparent;
+  --btn-bg: var(--paper);
   --btn-fg: var(--ink);
   box-shadow: none;
 }
 .btn--ghost:hover { --btn-bg: var(--paper-3); box-shadow: 4px 4px 0 var(--ink); }
 
 .btn--pitch { --btn-bg: var(--pitch); --btn-fg: var(--paper); }
-.btn--pitch:hover { --btn-bg: #26345A; }
+.btn--pitch:hover { --btn-bg: var(--ink); }
 
 .btn--sun { --btn-bg: var(--sun); --btn-fg: var(--ink); }
-.btn--sun:hover { --btn-bg: #F5C6DB; }
+.btn--sun:hover { --btn-bg: var(--coral); }
 
 /* For use on the dark bands. */
 .btn--cream {
@@ -68,7 +68,7 @@
   --btn-fg: var(--ink);
   border-color: var(--ink);
 }
-.btn--cream:hover { --btn-bg: #FFF4F8; }
+.btn--cream:hover { --btn-bg: var(--paper-3); }
 
 .btn--outline-cream {
   --btn-bg: transparent;
@@ -92,7 +92,7 @@
   height: 1.2em;
   flex: none;
   background: no-repeat center/contain
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14.6' fill='%23b7202b' stroke='%23241b2e' stroke-width='2'/%3E%3Cg fill='none' stroke='%23fff7ef' stroke-width='1.7' stroke-linecap='round' opacity='.95'%3E%3Cpath d='M9.2 3.6C6.4 8.6 6.4 23.4 9.2 28.4'/%3E%3Cpath d='M12.4 2.4C9.4 8 9.4 24 12.4 29.6'/%3E%3C/g%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14.6' fill='%23FDE7F0' stroke='%230B1F4B' stroke-width='2'/%3E%3Cg fill='none' stroke='%230B1F4B' stroke-width='1.7' stroke-linecap='round' opacity='.95'%3E%3Cpath d='M9.2 3.6C6.4 8.6 6.4 23.4 9.2 28.4'/%3E%3Cpath d='M12.4 2.4C9.4 8 9.4 24 12.4 29.6'/%3E%3C/g%3E%3C/svg%3E");
   transition: transform var(--t-med) var(--ease-spring);
 }
 
